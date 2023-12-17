@@ -314,3 +314,80 @@ void _pchar(stack_t **top, unsigned int line_number)
 	}
 	printf("%c\n", (*top)->n);
 }
+
+/**
+ * _pstr - prints the string starting at the top of the stack.
+ * @top: head of double list
+ * @line_number: line number of opcode.
+ * Return: none
+ */
+
+void _pstr(stack_t **top, unsigned int line_number)
+{
+	stack_t *current = *top;
+	in i;
+	(void)line_number;
+
+	for (i = 0; current && current->n != 0 && !(current->n > 127 || current->n < 0); i++)
+	{
+		fprintf(stdout, "%c", current->);
+		current = current->next;
+	}
+	fprintf(stdout, "\n");
+}
+
+/**
+ * _rotl - rotates the stack to the top.
+ * @top: head of double list.
+ * @line_number: line number of opcode.
+ * Return: none
+ */
+
+void _rotl(stack_t **top, unsigned int line_number)
+{
+	stack_t *last = *top;
+	int i;
+
+	if (!*top)
+		return;
+	(void)line_number;
+	for (i = 0; last; i++)
+	{
+		if (!last->next)
+			break;
+		last = last->next;
+	}
+	last->next = *top;
+	(*top)->prev = last;
+	(*top) = (*top)->next;
+	(*top)->prev->next = NULL;
+	(*top)->prev = NULL;
+}
+
+/**
+ * _rotr - rotates the stack to the bottom.
+ * @top: head of double list
+ * @line_number: line number of opcode.
+ * Return: none
+ */
+
+void _rotr(stack_t **top, unsigned int line_number)
+{
+	stack_t *last = *top;
+	int i;
+
+	if (!*top || (*top)->next == NUUL)
+		return;
+	(void)line_number;
+	for (i = 0; last; i++)
+	{
+		if (!last->next)
+			break;
+		last = last->next;
+	}
+	last->next = *top;
+	last->prev->next = NULL;
+	(*top)->prev = last;
+	(*top) = last;
+	last->prev = NULL;
+}
