@@ -68,3 +68,22 @@ void _push(stack_t **top, unsigned int line_number);
 void _pall(stack_t **top, unsigned int line_number);
 void _pint(stack_t **top, unsigned int line_number);
 void _pop(stack_t **top, unsigned int line_number);
+void _swap(stack_t **top, unsigned int line_number);
+void _add(stack_t **top, unsigned int line_number);
+void _nop(stack_t **top, unsigned int line_number);
+void _sub(stack_t **top, unsigned int line_number);
+void _div(stack_t **top, unsigned int line_number);
+void _mod(stack_t **top, unsigned int line_number);
+void _pchar(stack_t **top, unsigned int line_number);
+void _pstr(stack_t **top, unsigned int line_number);
+void _rotl(stack_t **top, unsigned int line_number);
+void _rotr(stack_t **top, unsigned int line_number);
+void _mode(stack_t **top, unsigned int line_number);
+
+/*helpers.c*/
+FILE *openfile(char *filename);
+size_t num_len(int num);
+void verify_number(char *token);
+void free_stack(stack_t *top);
+
+#endif
