@@ -37,11 +37,11 @@ void _push(stack_t **top, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 	new->n = datax.push_value;
-	if (data.mode == 0 || !*top)
+	if (datax.mode == 0 || !*top)
 	{
 		if (*top)
 		{
-			new->net = *top;
+			new->next = *top;
 			(*top)->prev = new;
 		}
 		else
@@ -134,7 +134,7 @@ void _pop(stack_t **top, unsigned int line_number)
  * @list_number: line number of opcode
  * Return: none
  */
-void _swap(stack_t **top, usigned int line_number)
+void _swap(stack_t **top, unsigned int line_number)
 {
 	stack_t *tmp1;
 
@@ -295,7 +295,7 @@ void _pchar(stack_t **top, unsigned int line_number)
 {
 	if (!*top)
 	{
-		printf(stderr, "L%d: can't pchar, stack empty\n", line_number);
+		fprintf(stderr, "L%d: can't pchar, stack empty\n", line_number);
 		free_stack(datax.top);
 		exit(EXIT_FAILURE);
 	}
@@ -325,12 +325,12 @@ void _pchar(stack_t **top, unsigned int line_number)
 void _pstr(stack_t **top, unsigned int line_number)
 {
 	stack_t *current = *top;
-	in i;
+	int i;
 	(void)line_number;
 
 	for (i = 0; current && current->n != 0 && !(current->n > 127 || current->n < 0); i++)
 	{
-		fprintf(stdout, "%c", current->);
+		fprintf(stdout, "%c", current->n);
 		current = current->next;
 	}
 	fprintf(stdout, "\n");
@@ -376,7 +376,7 @@ void _rotr(stack_t **top, unsigned int line_number)
 	stack_t *last = *top;
 	int i;
 
-	if (!*top || (*top)->next == NUUL)
+	if (!*top || (*top)->next == NULL)
 		return;
 	(void)line_number;
 	for (i = 0; last; i++)
