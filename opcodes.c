@@ -308,7 +308,7 @@ void _pchar(stack_t **top, unsigned int line_number)
 	}
 	if ((*top)->n > 127 || (*top)->n < 0)
 	{
-		printf(stderr, "L%d: can't pchar, value out of range\n", line_number);
+		fprintf(stderr, "L%d: can't pchar, value out of range\n", line_number);
                 free_stack(datax.top);
                 exit(EXIT_FAILURE);
 
