@@ -79,7 +79,7 @@ void _pstr(stack_t **top, unsigned int line_number);
 void _rotl(stack_t **top, unsigned int line_number);
 void _rotr(stack_t **top, unsigned int line_number);
 void _mode(stack_t **top, unsigned int line_number);
-
+void _mul(stack_t **top, unsigned int line_number);
 /*helpers.c*/
 FILE *openfile(char *filename);
 size_t num_len(int num);
