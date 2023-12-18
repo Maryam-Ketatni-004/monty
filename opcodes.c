@@ -5,10 +5,10 @@
  * @line_number: line number of opcode
  * Return: none
  */
-void _mode(stack_t **toop, unsigned int line number)
+void _mode(stack_t **top, unsigned int line_number)
 {
         (void)top;
-        (void)linr_number;
+        (void)line_number;
         
         if (strcmp(datax.opcode, "queue") ==0)
 		datax.mode = 1;
