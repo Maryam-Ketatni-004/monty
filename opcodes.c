@@ -5,6 +5,7 @@
  * @line_number: line number of opcode
  * Return: none
  */
+void _mode(stack_t **toop, unsigned int line number)
 {
         (void)top;
         (void)linr_number;
